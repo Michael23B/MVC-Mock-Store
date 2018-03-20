@@ -47,7 +47,7 @@ namespace SportsStore.Domain.Concrete
         public EmailOrderProcessor(EmailSettings settings)
         {
             emailSettings = settings;
-            //settings.ReadFromFile(AppDomain.CurrentDomain.BaseDirectory + "App_Data/secret_settings.txt");
+            settings.ReadFromFile(AppDomain.CurrentDomain.BaseDirectory + "App_Data/secret_settings.txt");
             //Uncomment above to set EmailSettings from a file (and keep passwords out of code)
         }
 

@@ -33,13 +33,20 @@ namespace SportsStore.WebUI.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = pageSize,
-                    TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(e => e.Category == category).Count()
+                    TotalItems = (category == null) ? repository.Products.Count() : repository.Products.Where(e => e.Category == category).Count()
                 },
 
                 CurrentCategory = category
             };
 
             return View(model);
+        }
+
+        public FileContentResult GetImage(int productID)
+        {
+            Product prod = repository.Products.FirstOrDefault(p => p.ProductID == productID);
+
+            return (prod != null) ? File(prod.ImageData, prod.ImageMimeType) : null;
         }
     }
 }
