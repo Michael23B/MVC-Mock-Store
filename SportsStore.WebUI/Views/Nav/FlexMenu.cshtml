@@ -5,7 +5,7 @@
 }
 
 <div class="@wrapperClasses">
-    @Html.ActionLink("Home", "List", "Product", new { @class = horizontal ? "btn btn-default btn-sm" : "btn btn-block btn-default btn-lg" })
+    @Html.RouteLink("Home", "Home", null, new { @class = horizontal ? "btn btn-default btn-sm" : "btn btn-block btn-default btn-lg" })
 
     @foreach (var link in Model)
     {
